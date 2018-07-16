@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 CIRCLE_CI_IMAGE_TAG=2.0.0
 
