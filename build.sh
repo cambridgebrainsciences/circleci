@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-CIRCLE_CI_IMAGE_TAG="${1:-2.0.0}"
+CIRCLE_CI_IMAGE_TAG="${1:-2.0.1}"
 
 # https://github.com/cambridgebrainsciences/circleci
 
