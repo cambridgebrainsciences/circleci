@@ -1,5 +1,9 @@
 FROM docker:19.03.13
 
+ENV BASH_ENV '/root/.bashrc'
+
+COPY .bashrc /root/.bashrc
+
 RUN apk add --no-cache \
   bash \
   ca-certificates \
@@ -13,8 +17,8 @@ RUN apk add --no-cache \
   && CRYPTOGRAPHY_DONT_BUILD_RUST=1 pip install wheel docker-compose \
   && apk del .docker-compose-deps \
   \
-  && echo 'alias aws="docker run --rm -e AWS_ACCESS_KEY_ID=\$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=\$AWS_SECRET_ACCESS_KEY -it amazon/aws-cli"' >> $HOME/.bashrc \
   && echo '. $HOME/.bashrc' >> /etc/profile \
+  && echo '. $HOME/.bashrc' >> $HOME/.bash_profile \
   \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
   && apk add --no-cache micro
